@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<web-app>
+  <display-name>WS1</display-name>
+  <description>WS1</description>
+  <servlet>
+    <servlet-name>service-ws</servlet-name>
+    <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>transformWsdlLocations</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </servlet>
+    
+  <servlet-mapping>
+    <servlet-name>service-ws</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+</web-app>

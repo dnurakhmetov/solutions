@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="WS1" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="c:/logs/WS1.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %p - %m%n"/>
+        </layout>
+    </appender>
+        
+    <logger name="log4j.logger.org.springframework.ws.client.MessageTracing.sent">
+        <level value="TRACE"/>
+        <appender-ref ref="WS1"/>
+    </logger>
+    <logger name="log4j.logger.org.springframework.ws.client.MessageTracing.received">
+        <level value="TRACE"/>
+        <appender-ref ref="WS1"/>
+    </logger>
+	
+    <logger name="WS1_debug">
+        <level value="DEBUG"/>
+        <appender-ref ref="WS1"/>
+    </logger>
+    
+    <appender name="WS2Client" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="File" value="c:/logs/WS2Client.log"/>
+        <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+        <param name="Append" value="true"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %p - %m%n"/>
+        </layout>
+    </appender>
+    
+    <logger name="WS2Client">
+        <level value="DEBUG"/>
+        <appender-ref ref="WS2Client"/>
+    </logger>
+        
+    <appender
+        name="SPRINGLOGFILE"
+        class="org.apache.log4j.RollingFileAppender">
+        <param
+            name="File"
+            value="c:/logs/WS1.log" />
+        <param
+            name="Append"
+            value="true" />
+        <param
+            name="MaxFileSize"
+            value="1MB" />
+        <param
+            name="MaxBackupIndex"
+            value="5" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param
+                name="ConversionPattern"
+                value="%d %-5p %c{2} - %m%n" />
+        </layout>
+    </appender>
+
+
+
+    <logger name="org.springframework.ws">
+        <priority value="DEBUG" />
+        <appender-ref ref="SPRINGLOGFILE" />
+    </logger>
+        
+
+</log4j:configuration>

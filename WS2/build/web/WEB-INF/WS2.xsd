@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.webservice2.kz/WS2" elementFormDefault="qualified">
+  <element name="StudentRequest">
+    <complexType>
+      <sequence>
+        <element name="id" type="string" maxOccurs="1" minOccurs="1"/>
+        <element name="subject" type="string" maxOccurs="unbounded" minOccurs="1" />
+      </sequence>
+    </complexType>
+  </element>
+  <element name="StudentResponse">
+    <complexType>
+      <sequence>
+        <element name="status" type="string" maxOccurs="1" minOccurs="1"/>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
